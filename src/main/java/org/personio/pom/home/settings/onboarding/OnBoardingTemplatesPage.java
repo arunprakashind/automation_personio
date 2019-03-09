@@ -1,9 +1,7 @@
 package org.personio.pom.home.settings.onboarding;
 
 import com.personio.framework.By;
-import com.personio.framework.type.html.Button;
-import com.personio.framework.type.html.SelectItem;
-import com.personio.framework.type.html.TextField;
+import com.personio.framework.type.html.*;
 import com.personio.framework.web.Page;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -27,9 +25,8 @@ public class OnBoardingTemplatesPage extends Page {
         return new Button (getDriver(), "//div[./h4/*[text()='" + templateName + "']]//a[@href='#modal-add-step']", By.ByType.Xpath);
     }
 
-    public Select Step () {
-        WebElement item = new SelectItem(getDriver(), "step_id", By.ByType.Name).getElement();
-        return new Select(item);
+    public SearchSelectItem Step () {
+        return new SearchSelectItem(getDriver(), "step_id", By.ByType.Name);
     }
 
     public Select Responsible () {
@@ -48,5 +45,9 @@ public class OnBoardingTemplatesPage extends Page {
 
     public Button Create () {
         return new Button (getDriver(), "//button[text()='Create']", By.ByType.Xpath);
+    }
+
+    public Table StepsTable (String templateName) {
+        return new Table (getDriver(), "//div[./h4/*[text()='" + templateName + "']]//table[contains(@class, 'template-steps')]", By.ByType.Xpath);
     }
 }
