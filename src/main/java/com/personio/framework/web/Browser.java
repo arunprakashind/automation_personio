@@ -24,6 +24,7 @@ public class Browser {
             case "firefox":
                 this.setupFirefoxDriver();
         }
+        this.driver.manage().window().maximize();
         this.driver.get(this.url);
     }
 
