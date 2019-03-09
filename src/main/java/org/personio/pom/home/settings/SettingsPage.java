@@ -4,6 +4,7 @@ import com.personio.framework.By;
 import com.personio.framework.type.html.Link;
 import com.personio.framework.web.Page;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.personio.pom.home.settings.onboarding.OnBoardingPage;
 
 public class SettingsPage extends Page {
 
