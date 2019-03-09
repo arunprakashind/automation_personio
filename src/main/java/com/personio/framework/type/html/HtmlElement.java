@@ -5,9 +5,12 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.List;
 
 public class HtmlElement {
     private RemoteWebDriver driver;
@@ -30,6 +33,16 @@ public class HtmlElement {
         this.driver = driver;
         try {
             this.element = this.driver.findElement(By.all(type, id));
+        } catch (NullPointerException | NoSuchElementException ex) {
+            this.element = null;
+        }
+    }
+
+    public HtmlElement (RemoteWebDriver driver, String id, By.ByType type, int index) {
+        this.driver = driver;
+        try {
+            List<WebElement> elements = this.driver.findElements(By.all(type, id));
+            this.element = elements.get(index);
         } catch (NullPointerException | NoSuchElementException ex) {
             this.element = null;
         }
@@ -61,12 +74,26 @@ public class HtmlElement {
         this.getElement().sendKeys(keys);
     }
 
+    public void SendKeys (Integer keys) {
+        this.getElement().sendKeys(keys.toString());
+    }
+
     public void click () {
 
         WebDriverWait clickWait = new WebDriverWait(this.driver, this.clickWait);
         clickWait.until(ExpectedConditions.elementToBeClickable(this.getElement()));
-        this.scrollIntoView();
-        this.element.click();
+        //this.scrollIntoView();
+        try {
+            this.element.click();
+        }
+        catch (Exception ex) {
+            if (ex.getMessage().contains("is not clickable at point")) {
+                Actions actions = new Actions(this.driver);
+                actions.moveToElement(this.element).click().perform();
+                return;
+            }
+            throw ex;
+        }
     }
 
     public void scrollIntoView() {

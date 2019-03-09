@@ -62,6 +62,8 @@ public class Browser {
     }
 
     public void quitDriver () {
-        this.driver.quit();
+        if (this.driver != null) {
+            this.driver.quit();
+        }
     }
 }

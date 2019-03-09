@@ -21,6 +21,12 @@ public class Page {
         this.waitForPage();
     }
 
+    public Page (String id, By.ByType byType) {
+        this.id = id;
+        this.byType = byType;
+        this.waitForPage();
+    }
+
     public RemoteWebDriver getDriver () {
         return this.driver;
     }

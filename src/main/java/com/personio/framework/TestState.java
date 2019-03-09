@@ -2,24 +2,32 @@ package com.personio.framework;
 
 import com.personio.framework.web.Browser;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.personio.pom.home.HomePage;
+import org.personio.pom.LoginPage;
 
 public class TestState {
-    private static RemoteWebDriver driver;
+    private static Browser browser;
 
     public TestState () {
 
-        if (this.driver == null) {
-            this.driver = new Browser().getDriver();
+        if (TestState.browser == null) {
+            TestState.browser = new Browser();
         }
     }
 
     public RemoteWebDriver getDriver () {
-        return this.driver;
+        return TestState.browser.getDriver();
     }
 
     public static void destroy () {
+        TestState.browser.quitDriver();
+    }
 
-        System.out.println("Closing Driver");
-        driver.quit();
+    public LoginPage LoginPage () {
+        return new LoginPage(getDriver());
+    }
+
+    public HomePage HomePage () {
+        return new HomePage(getDriver());
     }
 }
