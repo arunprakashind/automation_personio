@@ -50,4 +50,8 @@ public class OnBoardingTemplatesPage extends Page {
     public Table StepsTable (String templateName) {
         return new Table (getDriver(), "//div[./h4/*[text()='" + templateName + "']]//table[contains(@class, 'template-steps')]", By.ByType.Xpath);
     }
+
+    public Button SaveChanges (String templateName) {
+        return new Button (getDriver(), "//div[./h4/*[contains(text(), '" + templateName + "')]]//button[contains(@class,'btn btn-sm btn-primary')]", By.ByType.Xpath);
+    }
 }
