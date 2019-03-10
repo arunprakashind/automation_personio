@@ -20,4 +20,9 @@ public class HomePageSteps extends TestState {
     public void iClickOnConfiguration () {
         HomePage().Configuration().click();
     }
+
+    @When("^I click on Employees link in home page$")
+    public void iClickOnEmployees () {
+        HomePage().Employees().click();
+    }
 }

@@ -54,4 +54,20 @@ public class OnBoardingTemplatesPage extends Page {
     public Button SaveChanges (String templateName) {
         return new Button (getDriver(), "//div[./h4/*[contains(text(), '" + templateName + "')]]//button[contains(@class,'btn btn-sm btn-primary')]", By.ByType.Xpath);
     }
+
+    public Link TemplateLink (String templateName) {
+        return new Link (getDriver(), this.Div("template_list", By.ByType.Id).getElement(), templateName, By.ByType.linkText);
+    }
+
+    public Link DeleteTemplate (String templateName) {
+        return new Link (getDriver(), "//div[./h4/*[contains(text(), '" + templateName + "')]]//a[@href='#modal-delete-template']", By.ByType.Xpath);
+    }
+
+    public Div DeleteTemplateDialog () {
+        return new Div (getDriver(), "modal-delete-template", By.ByType.Id);
+    }
+
+    public Button DeleteTemplateConfirm () {
+        return new Button (getDriver(), DeleteTemplateDialog().getElement(), ".//button[text()='Delete']", By.ByType.Xpath);
+    }
 }

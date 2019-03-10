@@ -46,4 +46,20 @@ public class OnBoardingStepsPage extends Page {
     public Button SaveChanges (String stepName) {
         return new Button (getDriver(), "//div[./h4[contains(text(), '" + stepName + "')]]//button[contains(@class,'btn btn-sm btn-primary')]", By.ByType.Xpath);
     }
+
+    public Link StepLink (String stepName) {
+        return new Link (getDriver(), this.Div("step_list", By.ByType.Id).getElement(), "//a[contains(text(),'" + stepName + "')]", By.ByType.Xpath);
+    }
+
+    public Link DeleteStep (String stepName) {
+        return new Link (getDriver(), "//div[./h4[contains(text(), '" + stepName + "')]]//a[@href='#modal-delete-step']", By.ByType.Xpath);
+    }
+
+    public Div DeleteStepDialog () {
+        return new Div (getDriver(), "modal-delete-step", By.ByType.Id);
+    }
+
+    public Button DeleteStepConfirm () {
+        return new Button (getDriver(), DeleteStepDialog().getElement(), ".//button[text()='Delete']", By.ByType.Xpath);
+    }
 }

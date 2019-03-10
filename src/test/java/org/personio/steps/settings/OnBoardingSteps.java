@@ -143,4 +143,70 @@ public class OnBoardingSteps extends TestState {
     public void iClickSaveChangesInAddTemplate (String templateName) {
         HomePage().SettingsPage().OnBoardingPage().OnBoardingTemplatesPage().SaveChanges(templateName).click();
     }
+
+    @When("^I click on the template link (.*) in the templates list$")
+    public void iClickOnTemplateLink (String templateName) {
+        HomePage().SettingsPage().OnBoardingPage().OnBoardingTemplatesPage().TemplateLink(templateName).click();
+    }
+
+    @When("^I click on the step link (.*) in the steps list$")
+    public void iClickOnStepLink (String stepName) {
+        HomePage().SettingsPage().OnBoardingPage().OnBoardingStepsPage().StepLink(stepName).click();
+    }
+
+    @When("^I delete the template (.*)$")
+    public void iDeleteTemplate (String templateName) {
+        HomePage().SettingsPage().OnBoardingPage().OnBoardingTemplatesPage().DeleteTemplate(templateName).click();
+    }
+
+    @When("^I delete the step (.*)$")
+    public void iDeleteStep (String stepName) {
+        HomePage().SettingsPage().OnBoardingPage().OnBoardingStepsPage().DeleteStep(stepName).clickChild(true);
+    }
+
+    @Then("^the template (.*) is (present|not present) in the templates list$")
+    public void checkTemplatePresence (String templateName, String visibility) {
+        switch (visibility) {
+            case "present":
+                Assert.assertTrue(HomePage().SettingsPage().OnBoardingPage().OnBoardingTemplatesPage().TemplateLink(templateName).isVisible());
+                break;
+            case "not present":
+                Assert.assertFalse(HomePage().SettingsPage().OnBoardingPage().OnBoardingTemplatesPage().TemplateLink(templateName).isVisible());
+                break;
+        }
+    }
+
+    @Then("^the step (.*) is (present|not present) in the steps list$")
+    public void checkStepPresence (String stepName, String visibility) {
+        switch (visibility) {
+            case "present":
+                Assert.assertTrue(HomePage().SettingsPage().OnBoardingPage().OnBoardingStepsPage().StepLink(stepName).isVisible());
+                break;
+            case "not present":
+                Assert.assertFalse(HomePage().SettingsPage().OnBoardingPage().OnBoardingStepsPage().StepLink(stepName).isVisible());
+                break;
+        }
+    }
+
+    @Then("^delete template confirmation dialog (.*) is shown")
+    public void deleteTemplateConfirmationDialog (String message) {
+        HomePage().SettingsPage().OnBoardingPage().OnBoardingTemplatesPage().DeleteTemplateDialog().waitForLoad();
+        Assert.assertTrue(HomePage().SettingsPage().OnBoardingPage().OnBoardingTemplatesPage().DeleteTemplateDialog().getText().contains(message));
+    }
+
+    @Then("^delete step confirmation dialog (.*) is shown")
+    public void deleteStepConfirmationDialog (String message) {
+        HomePage().SettingsPage().OnBoardingPage().OnBoardingStepsPage().DeleteStepDialog().waitForLoad();
+        Assert.assertTrue(HomePage().SettingsPage().OnBoardingPage().OnBoardingStepsPage().DeleteStepDialog().getText().contains(message));
+    }
+
+    @When("^I click on Delete button in the confirmation dialog for Delete template$")
+    public void iClickOnDeleteTemplateConfirmButton () {
+        HomePage().SettingsPage().OnBoardingPage().OnBoardingTemplatesPage().DeleteTemplateConfirm().click();
+    }
+
+    @When("^I click on Delete button in the confirmation dialog for Delete step$")
+    public void iClickOnDeleteStepConfirmButton () {
+        HomePage().SettingsPage().OnBoardingPage().OnBoardingStepsPage().DeleteStepConfirm().click();
+    }
 }
