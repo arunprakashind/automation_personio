@@ -21,6 +21,7 @@ public class TestState {
 
     public static void destroy () {
         TestState.browser.quitDriver();
+        TestState.browser = null;
     }
 
     public LoginPage LoginPage () {
