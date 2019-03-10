@@ -72,4 +72,14 @@ public class Table extends HtmlElement {
         }
         return text;
     }
+
+    public void findAndClickLink (String linkText) {
+        List<WebElement> elements = getElement().findElements(By.xpath(".//td[@data-value='Arun']/a"));
+        if (elements.size() > 0) {
+            elements.get(0).click();
+        }
+        else {
+            throw new AssertionError("Link with text " + linkText + " not found in table");
+        }
+    }
 }

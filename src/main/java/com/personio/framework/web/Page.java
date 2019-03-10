@@ -3,6 +3,8 @@ package com.personio.framework.web;
 import com.personio.framework.By;
 import com.personio.framework.type.html.*;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -12,6 +14,8 @@ public class Page {
     private RemoteWebDriver driver;
     private String id;
     private By.ByType byType;
+    private boolean pageLoaded;
+    private WebElement element;
     private long pageWait = 2*60; //2 minutes
 
     public Page (RemoteWebDriver driver, String id, By.ByType byType) {
@@ -45,7 +49,22 @@ public class Page {
                 return 0 == (Long)((JavascriptExecutor)driverWait).executeScript("return jQuery.active;", new Object[0]);
             });
         }
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.all(byType, id)));
+        try {
+            this.element = wait.until(ExpectedConditions.presenceOfElementLocated(By.all(byType, id)));
+            this.pageLoaded = true;
+        }
+        catch (NullPointerException | NoSuchElementException ex) {
+            this.element = null;
+            this.pageLoaded = false;
+        }
+    }
+
+    public boolean IsLoaded () {
+        return this.pageLoaded;
+    }
+
+    public WebElement getElement () {
+        return this.element;
     }
 
     public Div Div (String id, By.ByType byType) {

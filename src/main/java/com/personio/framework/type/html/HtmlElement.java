@@ -76,8 +76,13 @@ public class HtmlElement {
     }
 
     public void waitForLoad () {
-        WebDriverWait wait = new WebDriverWait(this.driver, this.clickWait);
-        this.element = wait.until(ExpectedConditions.presenceOfElementLocated(By.all(type, id)));
+        try {
+            WebDriverWait wait = new WebDriverWait(this.driver, this.clickWait);
+            this.element = wait.until(ExpectedConditions.presenceOfElementLocated(By.all(type, id)));
+        }
+        catch (NullPointerException | NoSuchElementException ex){
+            throw new AssertionError("Element not loaded within the given timeout");
+        }
     }
 
     public WebElement getElement() {
