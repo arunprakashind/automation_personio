@@ -9,7 +9,7 @@ Core Path : The Core path I've selected for the Onboarding feature is creating a
 	Gradle - https://gradle.org/next-steps/?version=4.4&format=bin
 2. Download latest chrome and firefox driver
 	Chrome - https://chromedriver.storage.googleapis.com/index.html?path=2.46/
-	Firefox - https://github.com/mozilla/geckodriver/releases/download/v0.24.0/geckodriver-v0.24.0-win32.zip
+	Firefox - https://github.com/mozilla/geckodriver/releases/download/v0.24.0/geckodriver-v0.24.0-win64.zip
 
 ***Steps to Run the Suite***
 1. Move the chromedriver.exe and geckodriver.exe to lib folder of project (automation_personio/lib)
