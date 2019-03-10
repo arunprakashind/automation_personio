@@ -21,7 +21,6 @@ public class HtmlElement {
     private By.ByType type;
 
     public HtmlElement(RemoteWebDriver driver, String id) {
-
         this.driver = driver;
         this.id = id;
         try {
@@ -32,7 +31,6 @@ public class HtmlElement {
     }
 
     public HtmlElement(RemoteWebDriver driver, String id, By.ByType type) {
-
         this.driver = driver;
         this.id = id;
         this.type = type;
@@ -56,14 +54,12 @@ public class HtmlElement {
     }
 
     public boolean isVisible () {
-
         if (this.element != null)
             return element.isDisplayed();
         else
             return false;
     }
     public HtmlElement(RemoteWebDriver driver, WebElement parentElement, String id, By.ByType type) {
-
         this.driver = driver;
         this.parentElement = parentElement;
         this.id = id;
@@ -111,7 +107,6 @@ public class HtmlElement {
 
         WebDriverWait clickWait = new WebDriverWait(this.driver, this.clickWait);
         clickWait.until(ExpectedConditions.elementToBeClickable(this.getElement()));
-        //this.scrollIntoView();
         try {
             this.element.click();
         }
@@ -135,11 +130,6 @@ public class HtmlElement {
         actions.moveToElement(child).click().perform();
     }
 
-    public void scrollIntoView() {
-        JavascriptExecutor javascriptExecutor = this.driver;
-        javascriptExecutor.executeScript("arguments[0].scrollIntoView(true);", new Object[]{this.element});
-    }
-
     public void scrollToTop () {
         JavascriptExecutor javascriptExecutor = this.driver;
         javascriptExecutor.executeScript("window.scrollTo(0, 0);", new Object[]{this.element});
@@ -147,5 +137,9 @@ public class HtmlElement {
 
     public String getText () {
         return this.element.getText();
+    }
+
+    public String getValue () {
+        return this.element.getAttribute("value");
     }
 }

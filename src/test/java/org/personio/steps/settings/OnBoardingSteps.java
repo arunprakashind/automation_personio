@@ -18,14 +18,9 @@ public class OnBoardingSteps extends TestState {
         Assert.assertTrue(HomePage().SettingsPage().OnBoardingPage().IsLoaded());
     }
 
-    @When("^I click on Onboarding Steps link$")
-    public void iClickOnBoardingSteps () {
-        HomePage().SettingsPage().OnBoardingPage().OnboardingSteps().click();
-    }
-
-    @When("^I click on Onboarding Templates link$")
-    public void iClickOnBoardingTemplates () {
-        HomePage().SettingsPage().OnBoardingPage().OnboardingTemplate().click();
+    @When("^I select (.*) tab on Onboarding page$")
+    public void iClickOnBoardingTemplates (String tabName) {
+        HomePage().SettingsPage().OnBoardingPage().Tab(tabName).click();
     }
 
     @Then("^Onboarding Steps page is loaded$")
@@ -210,5 +205,16 @@ public class OnBoardingSteps extends TestState {
     @When("^I click on Delete button in the confirmation dialog for Delete step$")
     public void iClickOnDeleteStepConfirmButton () {
         HomePage().SettingsPage().OnBoardingPage().OnBoardingStepsPage().DeleteStepConfirm().click();
+    }
+
+    @When("^I set the Text area item of index (\\d+) for step (.*) with value (.*)$")
+    public void iSetTextArea (int index, String stepName, String value) {
+        HomePage().SettingsPage().OnBoardingPage().OnBoardingStepsPage().StepItemTextArea(stepName, index).SendKeys(value);
+    }
+
+    @Then("^the Text area item of index (\\d+) for step (.*) has value (.*)$")
+    public void textAreaHasValue (int index, String stepName, String expectedValue) {
+        String actualValue = HomePage().SettingsPage().OnBoardingPage().OnBoardingStepsPage().StepItemTextArea(stepName, index).getValue();
+        Assert.assertEquals(expectedValue, actualValue);
     }
 }

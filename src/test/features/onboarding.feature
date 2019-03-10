@@ -13,7 +13,7 @@ Feature: Onboarding
 
     When I click on On/Offboarding link in settings page
     Then Onboarding page is loaded
-    When I click on Onboarding Steps link
+    When I select Onboarding Steps tab on Onboarding page
     Then Onboarding Steps page is loaded
 
     When I enter New Step 1 in the step name field and click on Add Step button
@@ -28,9 +28,12 @@ Feature: Onboarding
     When I select the item Checkbox in the Item type list item
     And I click on Create button on Add item to Steps Page
     Then Checkbox item of index 0 for step New Step 1 is visible
+
+    When I set the Text area item of index 0 for step New Step 1 with value This is a test
+    Then the Text area item of index 0 for step New Step 1 has value This is a test
     And I click on Save Changes button for step New Step 1
 
-    When I click on Onboarding Templates link
+    When I select Onboarding Templates tab on Onboarding page
     Then Onboarding Templates page is loaded
     When I enter Template 1 in the Template Name field and click on Add Template button
     And I click on Add Step button in Onboarding templates page for template Template 1
@@ -74,11 +77,12 @@ Feature: Onboarding
     When I click on Delete button in the confirmation dialog for Delete template
     Then the template Template 1 is not present in the templates list
 
-    When I click on Onboarding Steps link
+    When I select Onboarding Steps tab on Onboarding page
     Then Onboarding Steps page is loaded
     And the step New Step 1 is present in the steps list
     When I click on the step link New Step 1 in the steps list
     Then Text area item of index 0 for step New Step 1 is visible
+    And the Text area item of index 0 for step New Step 1 has value This is a test
     And Checkbox item of index 0 for step New Step 1 is visible
     
     When I delete the step New Step 1
