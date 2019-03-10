@@ -10,7 +10,6 @@ public class Label extends HtmlElement {
     }
 
     public Label (RemoteWebDriver driver, String id, By.ByType byType) {
-
         super (driver, id, byType);
     }
 }

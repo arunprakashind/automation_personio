@@ -15,7 +15,6 @@ public class Button extends HtmlElement {
     }
 
     public Button (RemoteWebDriver driver, WebElement parentElement, String id, By.ByType byType) {
-
         super (driver, parentElement, id, byType);
     }
 }

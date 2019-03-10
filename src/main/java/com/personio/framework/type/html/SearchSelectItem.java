@@ -3,7 +3,6 @@ package com.personio.framework.type.html;
 import com.personio.framework.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.Select;
 
 public class SearchSelectItem extends HtmlElement {
 

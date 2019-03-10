@@ -10,7 +10,6 @@ public class Div extends HtmlElement {
     }
 
     public Div (RemoteWebDriver driver, String id, By.ByType byType) {
-
         super (driver, id, byType);
     }
 }

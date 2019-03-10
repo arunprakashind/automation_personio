@@ -15,7 +15,6 @@ public class Browser {
     private String url;
 
     public Browser () {
-
         this.getProperties();
         switch (this.browser) {
             case "chrome":

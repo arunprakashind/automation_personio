@@ -1,6 +1,5 @@
 package org.personio.steps.settings;
 
-import com.personio.framework.By;
 import com.personio.framework.TestState;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
@@ -13,7 +12,7 @@ public class OnBoardingSteps extends TestState {
         super ();
     }
 
-    @Then("^Onboarding page is loaded")
+    @Then("^Onboarding page is loaded$")
     public void onBoardingPageIsDisplayed () {
         Assert.assertTrue(HomePage().SettingsPage().OnBoardingPage().IsLoaded());
     }
@@ -39,7 +38,7 @@ public class OnBoardingSteps extends TestState {
         HomePage().SettingsPage().OnBoardingPage().OnBoardingStepsPage().AddStep().click();
     }
 
-    @And("^I click on Add item link")
+    @And("^I click on Add item link$")
     public void iClickOnAddItem () {
         HomePage().SettingsPage().OnBoardingPage().OnBoardingStepsPage().AddItem().click();
     }
@@ -50,7 +49,7 @@ public class OnBoardingSteps extends TestState {
         Assert.assertTrue(HomePage().SettingsPage().OnBoardingPage().OnBoardingStepsPage().Create().isVisible());
     }
 
-    @And("^I select the item (.*) in the Item type list item")
+    @And("^I select the item (.*) in the Item type list item$")
     public void iSelectItemType (String item) {
         HomePage().SettingsPage().OnBoardingPage().OnBoardingStepsPage().ItemType().selectByVisibleText(item);
     }
@@ -136,7 +135,7 @@ public class OnBoardingSteps extends TestState {
         Assert.assertEquals(expectedText, actualText);
     }
 
-    @When("^I click the Save Changes button for template (.*)")
+    @When("^I click the Save Changes button for template (.*)$")
     public void iClickSaveChangesInAddTemplate (String templateName) {
         HomePage().SettingsPage().OnBoardingPage().OnBoardingTemplatesPage().SaveChanges(templateName).click();
     }
@@ -185,13 +184,13 @@ public class OnBoardingSteps extends TestState {
         }
     }
 
-    @Then("^delete template confirmation dialog (.*) is shown")
+    @Then("^delete template confirmation dialog (.*) is shown$")
     public void deleteTemplateConfirmationDialog (String message) {
         HomePage().SettingsPage().OnBoardingPage().OnBoardingTemplatesPage().DeleteTemplateDialog().waitForLoad();
         Assert.assertTrue(HomePage().SettingsPage().OnBoardingPage().OnBoardingTemplatesPage().DeleteTemplateDialog().getText().contains(message));
     }
 
-    @Then("^delete step confirmation dialog (.*) is shown")
+    @Then("^delete step confirmation dialog (.*) is shown$")
     public void deleteStepConfirmationDialog (String message) {
         HomePage().SettingsPage().OnBoardingPage().OnBoardingStepsPage().DeleteStepDialog().waitForLoad();
         Assert.assertTrue(HomePage().SettingsPage().OnBoardingPage().OnBoardingStepsPage().DeleteStepDialog().getText().contains(message));

@@ -9,7 +9,6 @@ public class TestState {
     private static Browser browser;
 
     public TestState () {
-
         if (TestState.browser == null) {
             TestState.browser = new Browser();
         }
