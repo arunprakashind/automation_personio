@@ -23,7 +23,7 @@ public class EmployeePageSteps extends TestState {
 
     @When("^I click the employee link (.*) in Employees table$")
     public void iClickLinkInEmployeesTable (String linkText) {
-        HomePage().EmployeesPage().EmployeesTable().waitForLoad();
+        HomePage().EmployeesPage().EmployeesTable().waitForVisibility();
         HomePage().EmployeesPage().EmployeesTable().findAndClickLink(linkText);
     }
 

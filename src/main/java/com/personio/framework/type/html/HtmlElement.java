@@ -85,6 +85,16 @@ public class HtmlElement {
         }
     }
 
+    public void waitForVisibility () {
+        try {
+            WebDriverWait wait = new WebDriverWait(this.driver, this.clickWait);
+            this.element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.all(type, id)));
+        }
+        catch (NullPointerException | NoSuchElementException ex){
+            throw new AssertionError("Element not visible within the given timeout");
+        }
+    }
+
     public WebElement getElement() {
         return this.element;
     }
