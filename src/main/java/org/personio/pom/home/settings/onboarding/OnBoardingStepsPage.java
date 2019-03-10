@@ -7,6 +7,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
 
+/*
+Page class for Onboarding Steps page
+ */
 public class OnBoardingStepsPage extends Page {
 
     public OnBoardingStepsPage (RemoteWebDriver driver) {

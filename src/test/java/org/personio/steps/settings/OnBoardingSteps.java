@@ -6,6 +6,9 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
 
+/*
+Step definition for Onboarding pages
+ */
 public class OnBoardingSteps extends TestState {
 
     public OnBoardingSteps () {

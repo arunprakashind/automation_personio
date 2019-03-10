@@ -5,6 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
 
+/*
+Class for Table element in web page
+ */
 import java.util.List;
 
 public class Table extends HtmlElement {
@@ -17,6 +20,9 @@ public class Table extends HtmlElement {
         super (driver, id, byType);
     }
 
+    /*
+    Get Item by row and column
+     */
     public String getItem (int row, int column) {
         String text = null;
         List<WebElement> tableRows = getElement().findElements(By.xpath(".//tr"));
@@ -35,6 +41,9 @@ public class Table extends HtmlElement {
         return text;
     }
 
+    /*
+    Get List Item element selected value by row and column
+     */
     public String getSelectItemValue (int row, int column) {
         String text = null;
         List<WebElement> tableRows = getElement().findElements(By.xpath(".//tr"));
@@ -54,6 +63,9 @@ public class Table extends HtmlElement {
         return text;
     }
 
+    /*
+    Get Text field value by row and column
+     */
     public String getTextFieldValue (int row, int column) {
         String text = null;
         List<WebElement> tableRows = getElement().findElements(By.xpath(".//tr"));
@@ -73,6 +85,9 @@ public class Table extends HtmlElement {
         return text;
     }
 
+    /*
+    Find a link inside the table with the given text and click
+     */
     public void findAndClickLink (String linkText) {
         List<WebElement> elements = getElement().findElements(By.xpath(".//td[@data-value='Arun']/a"));
         if (elements.size() > 0) {

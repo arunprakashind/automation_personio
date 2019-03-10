@@ -6,6 +6,9 @@ import com.personio.framework.type.html.TextField;
 import com.personio.framework.web.Page;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+/*
+Page Class for Login page
+ */
 public class LoginPage extends Page {
 
     public LoginPage (RemoteWebDriver driver) {

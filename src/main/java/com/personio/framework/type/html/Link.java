@@ -4,6 +4,9 @@ import com.personio.framework.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+/*
+Class for Link elements in web page
+ */
 public class Link extends HtmlElement {
 
     public Link (RemoteWebDriver driver, String id) {

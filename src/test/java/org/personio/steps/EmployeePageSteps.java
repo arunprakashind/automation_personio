@@ -5,6 +5,9 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
 
+/*
+Step definition for Employees page
+ */
 public class EmployeePageSteps extends TestState {
 
     public EmployeePageSteps () {

@@ -3,12 +3,18 @@ package com.personio.framework.util;
 import java.io.InputStream;
 import java.util.Properties;
 
+/*
+Class for utilities
+ */
 public class Utilities {
 
-    public Properties getProperties () {
+    /*
+    Read properties file in the resources folder
+     */
+    public Properties getProperties (String propertiesFile) {
         try {
             Properties properties = new Properties();
-            InputStream inputStream = getClass().getClassLoader().getResourceAsStream("config.properties");
+            InputStream inputStream = getClass().getClassLoader().getResourceAsStream(propertiesFile);
             if (inputStream != null) {
                 properties.load(inputStream);
             return properties;
@@ -19,9 +25,5 @@ public class Utilities {
         catch (Exception ex) {
             throw new AssertionError("Unable to load config.properties");
         }
-    }
-    public static void main (String [] args) {
-        Properties properties = new Utilities().getProperties();
-        System.out.println(properties.get("browser"));
     }
 }

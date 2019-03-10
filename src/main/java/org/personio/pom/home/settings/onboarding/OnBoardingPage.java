@@ -5,6 +5,9 @@ import com.personio.framework.type.html.Link;
 import com.personio.framework.web.Page;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+/*
+Page Class for Onboarding page
+ */
 public class OnBoardingPage extends Page {
 
     public OnBoardingPage (RemoteWebDriver driver) {

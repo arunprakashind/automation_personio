@@ -5,6 +5,9 @@ import com.personio.framework.TestState;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+/*
+Step definition for Home page
+ */
 public class HomePageSteps extends TestState {
 
     public HomePageSteps () {

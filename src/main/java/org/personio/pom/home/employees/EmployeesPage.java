@@ -5,6 +5,9 @@ import com.personio.framework.type.html.Table;
 import com.personio.framework.web.Page;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+/*
+Page Class for Employees page
+ */
 public class EmployeesPage extends Page {
 
     public EmployeesPage (RemoteWebDriver driver) {

@@ -5,6 +5,9 @@ import com.personio.framework.TestState;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+/*
+Steps definition for Settings page
+ */
 public class SettingsPageSteps extends TestState {
 
     public SettingsPageSteps () {

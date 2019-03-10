@@ -4,6 +4,9 @@ import com.personio.framework.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+/*
+Class for Button elements in web page
+ */
 public class Button extends HtmlElement {
 
     public Button (RemoteWebDriver driver, String id) {

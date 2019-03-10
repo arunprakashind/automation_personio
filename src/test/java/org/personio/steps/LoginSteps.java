@@ -3,6 +3,9 @@ package org.personio.steps;
 import com.personio.framework.TestState;
 import cucumber.api.java.en.When;
 
+/*
+Step defintion for Login page
+ */
 public class LoginSteps extends TestState {
 
     public LoginSteps () {

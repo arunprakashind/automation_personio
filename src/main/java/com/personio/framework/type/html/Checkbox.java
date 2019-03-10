@@ -3,6 +3,9 @@ package com.personio.framework.type.html;
 import com.personio.framework.By;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+/*
+Class for Checkbox elements in web page
+ */
 public class Checkbox extends HtmlElement {
 
     public Checkbox (RemoteWebDriver driver, String id) {

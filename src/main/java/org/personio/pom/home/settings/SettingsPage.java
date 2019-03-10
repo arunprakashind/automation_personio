@@ -6,6 +6,9 @@ import com.personio.framework.web.Page;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.personio.pom.home.settings.onboarding.OnBoardingPage;
 
+/*
+Page Class for Settings page
+ */
 public class SettingsPage extends Page {
 
     public SettingsPage (RemoteWebDriver driver) {

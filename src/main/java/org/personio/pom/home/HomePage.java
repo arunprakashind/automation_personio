@@ -8,6 +8,9 @@ import org.personio.pom.home.employees.EmployeeDetailsPage;
 import org.personio.pom.home.employees.EmployeesPage;
 import org.personio.pom.home.settings.SettingsPage;
 
+/*
+Page Class for Home page
+ */
 public class HomePage extends Page {
 
     public HomePage (RemoteWebDriver driver) {

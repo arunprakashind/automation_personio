@@ -5,6 +5,9 @@ import com.personio.framework.type.html.Link;
 import com.personio.framework.web.Page;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+/*
+Page class for Employee Details page
+ */
 public class EmployeeDetailsPage extends Page {
 
     public EmployeeDetailsPage (RemoteWebDriver driver) {

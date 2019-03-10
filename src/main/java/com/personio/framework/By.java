@@ -6,6 +6,9 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
+/*
+Class that extends Selenium By class. Used for identifying elements using different locators
+ */
 public class By extends org.openqa.selenium.By {
 
     public By() {

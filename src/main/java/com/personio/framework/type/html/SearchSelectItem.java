@@ -4,6 +4,9 @@ import com.personio.framework.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+/*
+Class for Search Select Items in web page
+ */
 public class SearchSelectItem extends HtmlElement {
 
     public SearchSelectItem (RemoteWebDriver driver, String id) {

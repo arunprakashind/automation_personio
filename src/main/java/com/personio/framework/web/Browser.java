@@ -8,12 +8,18 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import java.io.File;
 import java.util.Properties;
 
+/*
+Class for Browser management
+ */
 public class Browser {
 
     private RemoteWebDriver driver;
     private String browser;
     private String url;
 
+    /*
+    Initialize browser based on config.properties
+     */
     public Browser () {
         this.getProperties();
         switch (this.browser) {
@@ -27,10 +33,16 @@ public class Browser {
         this.driver.get(this.url);
     }
 
+    /*
+    Return the remote web driver object
+     */
     public RemoteWebDriver getDriver () {
         return this.driver;
     }
 
+    /*
+    Setup the chrome driver
+     */
     public void setUpChromeDriver () {
         try {
             File file = new File(System.getProperty("user.dir") + File.separator + "lib" + File.separator + "chromedriver.exe");
@@ -42,6 +54,9 @@ public class Browser {
         }
     }
 
+    /*
+    Setup the firefox driver
+     */
     public void setupFirefoxDriver () {
         try {
 
@@ -54,12 +69,18 @@ public class Browser {
         }
     }
 
+    /*
+    Read the properties file
+     */
     public void getProperties () {
-        Properties properties = new Utilities().getProperties();
+        Properties properties = new Utilities().getProperties("config.properties");
         this.browser = properties.getProperty("browser");
         this.url = properties.getProperty("url");
     }
 
+    /*
+    Quit the webdriver
+     */
     public void quitDriver () {
         if (this.driver != null) {
             this.driver.quit();
