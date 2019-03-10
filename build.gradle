@@ -26,4 +26,9 @@ dependencies {
     compile 'info.cukes:cucumber-java:1.2.5'
     compile 'info.cukes:cucumber-junit:1.2.5'
     compile 'info.cukes:cucumber-jvm-deps:1.0.5'
+    compile group: 'com.vimalselvam', name: 'cucumber-extentsreport', version: '3.0.2'
+    compile group: 'com.aventstack', name: 'extentreports', version: '3.1.1'
+}
+test {
+    include '**/runner/*'
 }

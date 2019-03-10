@@ -8,9 +8,13 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = {"src/test/features/onboarding.feature"},
-        glue = "org.personio.steps",
+        glue = {"org.personio"},
         snippets = SnippetType.CAMELCASE,
-        plugin = {"junit:result/cucumber.xml", "json:result/cucumberJsonResult.json", "html:result/cucumberHTML"}
+        plugin = {"html:TestResults/cucumber-result",
+                "com.cucumber.listener.ExtentCucumberFormatter:TestResults/EReport/report.html",
+                "json:TestResults/cucumber-result/cucumber.json",
+                "pretty:TestResults/cucumber-result/cucumber-pretty.txt",
+                "usage:TestResults/cucumber-result/cucumber-usage.json"}
 )
 public class OnBoardingSuiteRunner {
 

@@ -15,7 +15,7 @@ public class OnBoardingSteps extends TestState {
 
     @Then("^Onboarding page is loaded")
     public void onBoardingPageIsDisplayed () {
-        HomePage().SettingsPage().OnBoardingPage().Link("//a[contains(text(),'Onboarding Templates')]", By.ByType.Xpath).isVisible();
+        Assert.assertTrue(HomePage().SettingsPage().OnBoardingPage().IsLoaded());
     }
 
     @When("^I click on Onboarding Steps link$")
@@ -30,12 +30,12 @@ public class OnBoardingSteps extends TestState {
 
     @Then("^Onboarding Steps page is loaded$")
     public void onBoardingStepsPageIsLoaded () {
-        HomePage().SettingsPage().OnBoardingPage().OnBoardingStepsPage().StepName().isVisible();
+        Assert.assertTrue(HomePage().SettingsPage().OnBoardingPage().OnBoardingStepsPage().IsLoaded());
     }
 
     @Then("^Onboarding Templates page is loaded$")
     public void onBoardingTemplatesPageIsLoaded () {
-        HomePage().SettingsPage().OnBoardingPage().OnBoardingTemplatesPage().TemplateName().isVisible();
+        Assert.assertTrue(HomePage().SettingsPage().OnBoardingPage().OnBoardingTemplatesPage().IsLoaded());
     }
 
     @When("^I enter (.*) in the step name field and click on Add Step button$")
@@ -47,6 +47,12 @@ public class OnBoardingSteps extends TestState {
     @And("^I click on Add item link")
     public void iClickOnAddItem () {
         HomePage().SettingsPage().OnBoardingPage().OnBoardingStepsPage().AddItem().click();
+    }
+
+    @Then("^Add item to Steps dialog is opened$")
+    public void addItemDialogIsOpened () {
+        HomePage().SettingsPage().OnBoardingPage().OnBoardingStepsPage().Create().waitForLoad();
+        Assert.assertTrue(HomePage().SettingsPage().OnBoardingPage().OnBoardingStepsPage().Create().isVisible());
     }
 
     @And("^I select the item (.*) in the Item type list item")
@@ -61,17 +67,12 @@ public class OnBoardingSteps extends TestState {
 
     @Then("^Text area item of index (\\d+) for step (.*) is visible$")
     public void textAreaItemIsPresentAtIndex (int index, String stepName) {
-        HomePage().SettingsPage().OnBoardingPage().OnBoardingStepsPage().StepItemTextArea(stepName, index).isVisible();
-    }
-
-    @Then("^Add item to Steps dialog is opened$")
-    public void addItemDialogIsOpened () {
-        HomePage().SettingsPage().OnBoardingPage().OnBoardingStepsPage().Div("//h4[text()='Add item to step']", By.ByType.Xpath).isVisible();
+        Assert.assertTrue(HomePage().SettingsPage().OnBoardingPage().OnBoardingStepsPage().StepItemTextArea(stepName, index).isVisible());
     }
 
     @And("^Checkbox item of index (\\d+) for step (.*) is visible$")
     public void checkBoxItemIsPresentAtIndex (int index, String stepName) {
-        HomePage().SettingsPage().OnBoardingPage().OnBoardingStepsPage().StepItemCheckbox(stepName, index).isVisible();
+        Assert.assertTrue(HomePage().SettingsPage().OnBoardingPage().OnBoardingStepsPage().StepItemCheckbox(stepName, index).isVisible());
     }
 
     @And("^I click on Save Changes button for step (.*)$")
@@ -92,7 +93,8 @@ public class OnBoardingSteps extends TestState {
 
     @Then("^Add Template dialog is opened$")
     public void addTemplateDialogIsOpened () {
-        HomePage().SettingsPage().OnBoardingPage().OnBoardingTemplatesPage().Div("//h4[text()='Add step to template']", By.ByType.Xpath);
+        HomePage().SettingsPage().OnBoardingPage().OnBoardingTemplatesPage().Create().waitForLoad();
+        Assert.assertTrue(HomePage().SettingsPage().OnBoardingPage().OnBoardingTemplatesPage().Create().isVisible());
     }
 
     @When("^I select the item (.*) in the Step list$")
@@ -118,7 +120,7 @@ public class OnBoardingSteps extends TestState {
 
     @Then("^steps table for the template (.*) is visible$")
     public void stepsTableForTemplateIsVisible (String templateName) {
-        HomePage().SettingsPage().OnBoardingPage().OnBoardingTemplatesPage().StepsTable(templateName).isVisible();
+        Assert.assertTrue(HomePage().SettingsPage().OnBoardingPage().OnBoardingTemplatesPage().StepsTable(templateName).isVisible());
     }
 
     @Then("^the item at row (\\d+) and column (\\d+) of template (.*) has text (.*)$")

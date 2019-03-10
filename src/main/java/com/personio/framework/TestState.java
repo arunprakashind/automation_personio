@@ -20,8 +20,10 @@ public class TestState {
     }
 
     public static void destroy () {
-        TestState.browser.quitDriver();
-        TestState.browser = null;
+        if (TestState.browser != null) {
+            TestState.browser.quitDriver();
+            TestState.browser = null;
+        }
     }
 
     public LoginPage LoginPage () {
