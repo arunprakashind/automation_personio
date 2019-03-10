@@ -1,7 +1,7 @@
 # automation_personio
 E2E Automation Suite for Onboarding feature
 
-Core Path : The Core path I've selected for the Onboarding feature is creating a template step and adding a template based on that step. I'm verifying the template creation by checking if the template is available to assign to an employee. I feel this is the most critical part in the Onboarding flow.
+Core Path : The Core path I've selected for the Onboarding feature is creating a template step and adding a template based on that step. I'm verifying the template creation by checking if the template is available to assign to an employee. I feel this is the most critical part in the Onboarding flow. The reason is all the end users who is using the application will be doing the onboarding with a template creation. This is the most vital part in onboarding and enough automated tests need to be developed around this to ensure quality.
 
 ***Pre requisites***
 1. To run the test suite you need to have JDK 8 and Gradle 4.x installed on your machine.
